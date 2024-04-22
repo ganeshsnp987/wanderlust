@@ -1,0 +1,31 @@
+version: "3.3"
+services:
+   
+   mongodb:
+     container_name: mongo
+     image: mongo:latest
+     ports: 
+       - "27017:27017"
+     volumes:
+       - ./backend/data:/data
+
+   backend:
+     container_name: backend
+     build: ./backend
+     env_file:
+       - ./backend/.env.sample
+     ports:
+       - "5000:5000" 
+     depends_on:
+       - mongodb     
+
+   frontend:
+     container_name: frontend
+     build: ./frontend
+     env_file:
+       - ./backend/.env.sample
+     ports:
+       - "5175:5175"
+
+volumes:
+  data:

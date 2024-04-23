@@ -25,7 +25,7 @@ services:
      env_file:
        - ./backend/.env.sample
      ports:
-       - "5175:5175"
+       - "5173:5173"
 
 volumes:
   data:

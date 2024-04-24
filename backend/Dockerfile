@@ -8,6 +8,8 @@ COPY . .
 
 RUN npm i
 
+RUN npm run test
+
 #Stage2***************************************************
 FROM node:21-slim
 
